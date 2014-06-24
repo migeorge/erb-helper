@@ -1,0 +1,20 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'ERB Output Tag'  : 'erb-helper:output',
+      'ERB Eval Tag'    : 'erb-helper:eval',
+      'ERB Comment Tag' : 'erb-helper:comment',
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'erb-helper'
+      'submenu': [
+        { 'label': 'ERB Output Tag', 'command': 'erb-helper:output' },
+        { 'label': 'ERB Eval Tag', 'command': 'erb-helper:eval' },
+        { 'label': 'ERB Comment Tag', 'command': 'erb-helper:comment' },
+      ]
+    ]
+  }
+]

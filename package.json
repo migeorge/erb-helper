@@ -1,0 +1,16 @@
+{
+  "name": "ERB Helper",
+  "main": "./lib/erb-helper",
+  "version": "0.0.1",
+  "description": "ERB Helper makes it easy to inser and wrap ERB tags with Atom.",
+  "activationEvents": ["erb-helper:output",
+                       "erb-helper:eval",
+                       "erb-helper:comment"],
+  "repository": "https://github.com/migeorge/erb-helper",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}

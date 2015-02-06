@@ -2,7 +2,7 @@
   "name": "erb-helper",
   "main": "./lib/erb-helper",
   "version": "0.2.0",
-  "description": "ERB Helper makes it easy to inser and wrap ERB tags with Atom.",
+  "description": "ERB Helper makes it easy to insert and wrap ERB tags with Atom.",
   "activationEvents": [
     "erb-helper:output",
     "erb-helper:eval",

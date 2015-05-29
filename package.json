@@ -1,14 +1,15 @@
 {
   "name": "erb-helper",
   "main": "./lib/erb-helper",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "ERB Helper makes it easy to insert and wrap ERB tags with Atom.",
   "activationCommands": {
     "atom-workspace": [
       "erb-helper:output",
       "erb-helper:eval",
       "erb-helper:comment"
-  ]},
+    ]
+  },
   "repository": "https://github.com/migeorge/erb-helper",
   "license": "MIT",
   "author": {

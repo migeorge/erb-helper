@@ -1,41 +1,35 @@
+{CompositeDisposable} = require 'atom'
+
 module.exports =
+  subscriptions: null
+
   activate: ->
-    atom.workspaceView.command "erb-helper:output", => @output()
-    atom.workspaceView.command "erb-helper:eval",   => @eval()
-    atom.workspaceView.command "erb-helper:comment", => @comment()
+    @subscriptions = new CompositeDisposable
+    @subscriptions.add atom.commands.add 'atom-workspace', {
+      'erb-helper:output'  : => @output()
+      'erb-helper:eval'    : => @eval()
+      'erb-helper:comment' : => @comment()
+    }
+
+  deactivate: ->
+    @subscriptions.dispose()
 
   output: ->
-    editor = atom.workspace.activePaneItem
-    selection = editor.getSelection().getText()
-
-    if selection
-      editor.insertText("<%= #{selection} %>")
-    else
-      editor.insertText('<%=  %>')
-      editor.moveCursorLeft()
-      editor.moveCursorLeft()
-      editor.moveCursorLeft()
+    @insertTag('<%=  %>')
 
   eval: ->
-    editor = atom.workspace.activePaneItem
-    selection = editor.getSelection().getText()
-
-    if selection
-      editor.insertText("<% #{selection} %>")
-    else
-      editor.insertText('<%  %>')
-      editor.moveCursorLeft()
-      editor.moveCursorLeft()
-      editor.moveCursorLeft()
+    @insertTag('<%  %>')
 
   comment: ->
-    editor = atom.workspace.activePaneItem
-    selection = editor.getSelection().getText()
+    @insertTag('<%#  %>')
+
+  insertTag: (tag) ->
+    editor = atom.workspace.getActiveTextEditor()
+    selection = editor.getSelectedText()
+    [openTag, ..., closeTag] = tag.split " "
 
     if selection
-      editor.insertText("<%# #{selection} %>")
+      editor.insertText(openTag + " #{selection} " + closeTag)
     else
-      editor.insertText('<%#  %>')
-      editor.moveCursorLeft()
-      editor.moveCursorLeft()
-      editor.moveCursorLeft()
+      editor.insertText(tag)
+      editor.moveLeft(3)

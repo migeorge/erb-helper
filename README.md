@@ -9,6 +9,7 @@ ERB Helper makes it easy to insert and wrap ERB tags with Atom.
 | ERB Output   | <%=  %>   | ```CTRL + SHIFT + .``` |
 | ERB Eval     | <%  %>    | ```CTRL + .```         |
 | ERB Comment  | <%#  %>   | ```CTRL + SHIFT + 3``` |
+| ERB End      | <% end %> | ```CTRL + SHIFT + /``` |
 
 You can also find the commands in the Right Click context menu.
 

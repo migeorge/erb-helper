@@ -7,7 +7,8 @@
     "atom-workspace": [
       "erb-helper:output",
       "erb-helper:eval",
-      "erb-helper:comment"
+      "erb-helper:comment",
+      "erb-helper:end",
     ]
   },
   "repository": "https://github.com/migeorge/erb-helper",

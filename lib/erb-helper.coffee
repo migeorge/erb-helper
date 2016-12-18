@@ -9,6 +9,7 @@ module.exports =
       'erb-helper:output'  : => @output()
       'erb-helper:eval'    : => @eval()
       'erb-helper:comment' : => @comment()
+      'erb-helper:end' : => @end()
     }
 
   deactivate: ->
@@ -22,6 +23,9 @@ module.exports =
 
   comment: ->
     @insertTag('<%#  %>')
+
+  end: ->
+    @insertTag('<% end %>')
 
   insertTag: (tag) ->
     editor = atom.workspace.getActiveTextEditor()

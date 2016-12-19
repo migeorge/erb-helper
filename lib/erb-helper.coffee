@@ -9,31 +9,34 @@ module.exports =
       'erb-helper:output'  : => @output()
       'erb-helper:eval'    : => @eval()
       'erb-helper:comment' : => @comment()
-      'erb-helper:end' : => @end()
+      'erb-helper:end'     : => @end()
     }
 
   deactivate: ->
     @subscriptions.dispose()
 
   output: ->
-    @insertTag('<%=  %>')
+    @insertTag('<%=  %>', false)
 
   eval: ->
-    @insertTag('<%  %>')
+    @insertTag('<%  %>', false)
 
   comment: ->
-    @insertTag('<%#  %>')
+    @insertTag('<%#  %>', false)
 
   end: ->
-    @insertTag('<% end %>')
+    @insertTag('<% end %>', true)
 
-  insertTag: (tag) ->
-    editor = atom.workspace.getActiveTextEditor()
-    selection = editor.getSelectedText()
-    [openTag, ..., closeTag] = tag.split " "
+  insertTag: (tag, isBlockLevel) ->
+    if !isBlockLevel
+      editor = atom.workspace.gextActiveTextEditor()
+      selection = editor.getSelectedText()
+      [openTag, ..., closeTag] = tag.split " "
 
-    if selection
-      editor.insertText(openTag + " #{selection} " + closeTag)
+      if selection
+        editor.insertText(openTag + " #{selection} " + closeTag)
+      else
+        editor.insertText(tag)
+        editor.moveLeft(3)
     else
       editor.insertText(tag)
-      editor.moveLeft(3)

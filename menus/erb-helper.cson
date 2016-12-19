@@ -3,5 +3,5 @@
     {label: 'ERB Output Tag',  command: 'erb-helper:output'}
     {label: 'ERB Eval Tag',    command: 'erb-helper:eval' }
     {label: 'ERB Comment Tag', command: 'erb-helper:comment'}
-    {label: 'ERB End Tag', command: 'erb-helper:end'}
+    {label: 'ERB End Tag',     command: 'erb-helper:end'}
   ]

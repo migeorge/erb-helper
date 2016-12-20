@@ -28,15 +28,15 @@ module.exports =
     @insertTag('<% end %>', true)
 
   insertTag: (tag, isBlockLevel) ->
-    if !isBlockLevel
-      editor = atom.workspace.gextActiveTextEditor()
-      selection = editor.getSelectedText()
-      [openTag, ..., closeTag] = tag.split " "
+    editor = atom.workspace.getActiveTextEditor()
+    selection = editor.getSelectedText()
+    [openTag, ..., closeTag] = tag.split " "
 
+    if isBlockLevel
+        editor.insertText(tag)
+    else
       if selection
         editor.insertText(openTag + " #{selection} " + closeTag)
       else
         editor.insertText(tag)
         editor.moveLeft(3)
-    else
-      editor.insertText(tag)

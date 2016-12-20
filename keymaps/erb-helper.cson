@@ -2,4 +2,4 @@
   'ctrl->': 'erb-helper:output'
   'ctrl-.': 'erb-helper:eval'
   'ctrl-#': 'erb-helper:comment'
-  'ctrl-/': 'erb-helper:end'
+  'ctrl-8': 'erb-helper:end'

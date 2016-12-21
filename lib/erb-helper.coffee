@@ -10,24 +10,36 @@ module.exports =
       'erb-helper:eval'    : => @eval()
       'erb-helper:comment' : => @comment()
       'erb-helper:end'     : => @end()
+      'erb-helper:if'      : => @if()
+      'erb-helper:else'    : => @else()
+      'erb-helper:elsif'   : => @elsif()
     }
 
   deactivate: ->
     @subscriptions.dispose()
 
   output: ->
-    @insertTag('<%=  %>', false)
+    @insertTag('<%=  %>')
 
   eval: ->
-    @insertTag('<%  %>', false)
+    @insertTag('<%  %>')
 
   comment: ->
-    @insertTag('<%#  %>', false)
+    @insertTag('<%#  %>')
 
   end: ->
     @insertTag('<% end %>', true)
 
-  insertTag: (tag, isBlockLevel) ->
+  if: ->
+    @insertTag('<% if %>', true)
+
+  else: ->
+    @insertTag('<% else %>', true)
+
+  elsif: ->
+    @insertTag('<% elsif %>', true)
+
+  insertTag: (tag, isBlockLevel = false) ->
     editor = atom.workspace.getActiveTextEditor()
     selection = editor.getSelectedText()
     [openTag, ..., closeTag] = tag.split " "

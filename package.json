@@ -8,7 +8,10 @@
       "erb-helper:output",
       "erb-helper:eval",
       "erb-helper:comment",
-      "erb-helper:end"
+      "erb-helper:end",
+      "erb-helper:if",
+      "erb-helper:else",
+      "erb-helper:elsif"
     ]
   },
   "repository": "https://github.com/migeorge/erb-helper",

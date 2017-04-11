@@ -1,6 +1,8 @@
 'context-menu':
-  'atom-workspace': [
+  'atom-text-editor': [
+    {type: 'separator'},
     {label: 'ERB Output Tag',  command: 'erb-helper:output'}
     {label: 'ERB Eval Tag',    command: 'erb-helper:eval' }
-    {label: 'ERB Comment Tag', command: 'erb-helper:comment'}
+    {label: 'ERB Comment Tag', command: 'erb-helper:comment'},
+    {type: 'separator'}
   ]

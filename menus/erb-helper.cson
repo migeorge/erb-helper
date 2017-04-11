@@ -3,6 +3,10 @@
     {type: 'separator'},
     {label: 'ERB Output Tag',  command: 'erb-helper:output'}
     {label: 'ERB Eval Tag',    command: 'erb-helper:eval' }
-    {label: 'ERB Comment Tag', command: 'erb-helper:comment'},
+    {label: 'ERB Comment Tag', command: 'erb-helper:comment'}
+    {label: 'ERB End Tag',     command: 'erb-helper:end'}
+    {label: 'ERB If Tag',      command: 'erb-helper:if'}
+    {label: 'ERB Else Tag',    command: 'erb-helper:else'}
+    {label: 'ERB Elsif Tag',   command: 'erb-helper:elsif'},
     {type: 'separator'}
   ]

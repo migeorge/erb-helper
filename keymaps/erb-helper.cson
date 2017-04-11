@@ -2,3 +2,7 @@
   'ctrl->': 'erb-helper:output'
   'ctrl-.': 'erb-helper:eval'
   'ctrl-#': 'erb-helper:comment'
+  'ctrl-8': 'erb-helper:end'
+  'ctrl-7': 'erb-helper:if'
+  'ctrl-6': 'erb-helper:else'
+  'ctrl-^': 'erb-helper:elsif'

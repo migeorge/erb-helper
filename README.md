@@ -4,11 +4,15 @@ ERB Helper makes it easy to insert and wrap ERB tags with Atom.
 
 ## Usage
 
-| Command Name | ERB Value | Key Binding            |
-|--------------|-----------|------------------------|
-| ERB Output   | <%=  %>   | ```CTRL + SHIFT + .``` |
-| ERB Eval     | <%  %>    | ```CTRL + .```         |
-| ERB Comment  | <%#  %>   | ```CTRL + SHIFT + 3``` |
+| Command Name | ERB Value   | Key Binding            |
+|--------------|-------------|------------------------|
+| ERB Output   | <%=  %>     | ```CTRL + SHIFT + .``` |
+| ERB Eval     | <%  %>      | ```CTRL + .```         |
+| ERB Comment  | <%#  %>     | ```CTRL + SHIFT + 3``` |
+| ERB End      | <% end %>   | ```CTRL + 8```         |
+| ERB If       | <% if %>    | ```CTRL + 7```         |
+| ERB Else     | <% else %>  | ```CTRL + 6```         |
+| ERB Elsif    | <% elsif %> | ```CTRL + SHIFT + 6``` |
 
 You can also find the commands in the Right Click context menu.
 

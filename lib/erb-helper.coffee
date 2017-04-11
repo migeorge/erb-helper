@@ -9,6 +9,10 @@ module.exports =
       'erb-helper:output'  : => @output()
       'erb-helper:eval'    : => @eval()
       'erb-helper:comment' : => @comment()
+      'erb-helper:end'     : => @end()
+      'erb-helper:if'      : => @if()
+      'erb-helper:else'    : => @else()
+      'erb-helper:elsif'   : => @elsif()
     }
 
   deactivate: ->
@@ -23,13 +27,28 @@ module.exports =
   comment: ->
     @insertTag('<%#  %>')
 
-  insertTag: (tag) ->
+  end: ->
+    @insertTag('<% end %>', true)
+
+  if: ->
+    @insertTag('<% if %>', true)
+
+  else: ->
+    @insertTag('<% else %>', true)
+
+  elsif: ->
+    @insertTag('<% elsif %>', true)
+
+  insertTag: (tag, isBlockLevel = false) ->
     editor = atom.workspace.getActiveTextEditor()
     selection = editor.getSelectedText()
     [openTag, ..., closeTag] = tag.split " "
 
-    if selection
-      editor.insertText(openTag + " #{selection} " + closeTag)
+    if isBlockLevel
+        editor.insertText(tag)
     else
-      editor.insertText(tag)
-      editor.moveLeft(3)
+      if selection
+        editor.insertText(openTag + " #{selection} " + closeTag)
+      else
+        editor.insertText(tag)
+        editor.moveLeft(3)
